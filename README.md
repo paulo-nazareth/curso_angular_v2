@@ -31,16 +31,17 @@ Play List Curso de Angular v2: https://www.youtube.com/watch?v=XxPjcMTZz5w&list=
 #Criar o Projeto
 	cmd: ng new nome-projeto
   OU
+  cmd: ng init (Criando a Pasta do Projeto Antes)
+  OU
 	cmd: ng new projeto-inicial --skip-install 
        cd projeto-inicial 
-       npm installng
+       npm install
+
+  Testar...
+  npx @angular/cli@1.0.0 new nome-projeto
   _________________________________________________________________
   *Após a Criação se Apresentar Erro Vide Versões a serem atualizadas/substituidas no package.json.
-	
-##Startando Servidor
-Através do Terminal Acesse a Pasta do Projeto
-	cmd: ng serve	
-	URL Padrão: http://localhost:4200/
+
 	
 ##Criar Component
 	cmd: ng g component nome-component
@@ -60,6 +61,12 @@ Através do Terminal Acesse a Pasta do Projeto
         OU
        ng g s nome-servico
 
+##Startando Servidor
+Através do Terminal Acesse a Pasta do Projeto
+	cmd: ng serve	
+    OU
+       ng server --port 4280 --live-reload-port 49153 (Especifica a Porta Desejada para Uso)
+	URL Padrão: http://localhost:4200/
 
 -------------------------------------------------------------------
 ##Data Binding
@@ -195,5 +202,8 @@ Através do Terminal Acesse a Pasta do Projeto
     "typescript": "2.2.2"
   }
 
-
-
+---------------------------------------------------------
+###Anotações
+diretivas
+	diretivas-ngif (componente)
+	diretiva-ngif/diretiva-if (serviço)
