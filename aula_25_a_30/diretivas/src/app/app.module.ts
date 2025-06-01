@@ -5,11 +5,15 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DiretivasNgifComponent } from './diretivas-ngif/diretivas-ngif.component';
+import { DiretivasNgforComponent } from './diretivas-ngfor/diretivas-ngfor.component';
+import { DiretivasNgswitchComponent } from './diretivas-ngswitch/diretivas-ngswitch.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DiretivasNgifComponent
+    DiretivasNgifComponent,
+    DiretivasNgforComponent,
+    DiretivasNgswitchComponent
   ],
   imports: [
     BrowserModule,
