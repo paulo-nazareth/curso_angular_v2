@@ -6,3 +6,11 @@
     </li>
   </ul>
 </div>
+<h5>*ngFor com Index</h5>
+<div>
+  <ul>
+    <li *ngFor="let curso of cursos, let i = index">
+      Curso Posição {{ i+1 }} - {{ curso }}
+    </li>
+  </ul>
+</div>

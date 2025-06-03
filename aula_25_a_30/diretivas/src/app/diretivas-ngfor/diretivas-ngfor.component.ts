@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiretivasNgforComponent implements OnInit {
 
-  cursos: string[] = ["Angular", "Typescript"];
+  cursos: string[] = ["Angular", "Java", "Typescript"];
+  
   constructor() { }
 
   ngOnInit() {
