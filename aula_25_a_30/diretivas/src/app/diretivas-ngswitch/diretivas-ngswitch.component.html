@@ -19,3 +19,18 @@
   <p *ngSwitchCase="'feat'">Modo Feature Ativados</p>
   <p *ngSwitchDefault>Modo Pricing Ativados</p>
 </div>
+
+<h5>*ngSwitch com Template</h5>
+<span>No exemplo é apenas "template", contudo devido a mensagem DEPRECATE atualizei para on-template</span>
+<div class="container" [ngSwitch]="aba">
+  <ng-template [ngSwitchCase]="'home'">
+    <p>Modo Home Ativados</p>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'feat'">
+    <p>Modo Feature Ativados</p>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'list'" ngSwitchDefault>
+    <p>Modo Pricing Ativados</p>
+  </ng-template>
+</div>
+

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DiretivasNgswitchComponent implements OnInit {
 
   aba: string = 'home';
+  
   constructor() { }
 
   ngOnInit() {
