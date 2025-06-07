@@ -1,0 +1,22 @@
+<section>
+  <article>
+    <h3>Two-way data binding</h3>
+    <div>
+        <input type="text" [value]="nome" (input)="nome = $event.target.value">
+        <input type="text" [ngModel]="nome" (ngModelChange)="nome = $event">
+        <!-- 
+          Binding de Propriedade e Binding de Evento
+          Sintaxe Conhecida como BANANA IN A BOX
+        -->
+        <input type="text" [(ngModel)]="nome">
+        <input type="text" bindon-ngModel="nome">
+    </div>
+    <p>Você digitou: {{ nome }}</p>
+    <div>
+      <input type="text" [(ngModel)]="pessoa.nome">
+      <input type="text" [(ngModel)]="pessoa.idade">
+      <input type="text" [(ngModel)]="pessoa.end.rua">
+      <p>Meu nome é {{ pessoa.nome }} tenho {{ pessoa.idade }}</p>
+    </div>
+  </article>
+</section>
