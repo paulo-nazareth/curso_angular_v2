@@ -14,3 +14,24 @@
   Texto com Highlight com cores customizadas.
   Código mais clean
 </p>
+
+<section>
+  <div *ngIf="mostrarCursos">
+    Mostrar Cursos
+  </div>
+  <div *ngIf="!mostrarCursos">
+    Não Mostrar Cursos
+  </div>
+</section>
+
+<section>
+  <div *ngIf="mostrarCursos">
+    Mostrar Cursos (nfElse Customizado)
+  </div>
+  <div *ngElse="mostrarCursos">
+    Não Mostrar Cursos (nfElse Customizado)
+  </div>
+</section>
+<div>
+  <button (click)="onExibirCursos()">Mostrar ou Esconder</button>
+</div>

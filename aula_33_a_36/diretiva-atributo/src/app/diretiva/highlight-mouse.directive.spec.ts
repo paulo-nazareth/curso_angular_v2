@@ -1,4 +1,3 @@
-
 import { HighlightMouseDirective } from './highlight-mouse.directive';
 
 describe('HighlightMouseDirective', () => {
