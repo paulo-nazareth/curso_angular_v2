@@ -17,7 +17,7 @@ import { CursosService } from './cursos/cursos.service';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ CursosService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
