@@ -6,6 +6,7 @@ import { CursosService } from './cursos.service';
   selector: 'app-cursos',
   templateUrl: './cursos.component.html',
   styleUrls: ['./cursos.component.css']
+  // ,providers:[] Pode ser Declado, para ser instanciado apenas dentro desta classe.
 })
 export class CursosComponent implements OnInit {
 
