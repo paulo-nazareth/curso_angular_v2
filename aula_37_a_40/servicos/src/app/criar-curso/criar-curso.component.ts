@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-criar-curso',
   templateUrl: './criar-curso.component.html',
   styleUrls: ['./criar-curso.component.css']
+  ,providers: [ CursosService ]
  // ,providers:[] Pode ser Declado, para ser instanciado apenas dentro desta classe.
 })
 export class CriarCursoComponent implements OnInit {
