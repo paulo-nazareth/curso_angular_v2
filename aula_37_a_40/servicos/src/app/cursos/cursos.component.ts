@@ -6,6 +6,7 @@ import { CursosService } from './cursos.service';
   selector: 'app-cursos',
   templateUrl: './cursos.component.html',
   styleUrls: ['./cursos.component.css']
+  ,providers: [ CursosService ]
   // ,providers:[] Pode ser Declado, para ser instanciado apenas dentro desta classe.
 })
 export class CursosComponent implements OnInit {
@@ -21,6 +22,16 @@ export class CursosComponent implements OnInit {
 
   ngOnInit() {
     this.cursos = this.cursoService.getCursos();
+    /*this.cursoService.emitirCursoCriado.subscribe(
+      //function(curso){
+        //console.log(curso);
+      //}
+     curso => console.log(curso)
+    );*/
+    CursosService.criouNovoCurso.subscribe(
+     curso => this.cursos.push(curso)
+    );
+
   }
 
 }
