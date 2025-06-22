@@ -1,0 +1,47 @@
+<h5>Exemplos de Pipes</h5>
+
+<p>Título: {{ livro.titulo | uppercase | lowercase | camelCase }}</p>
+<p>Estrelas: {{ livro.rating | number:'2.1-2' }}</p>
+<p>Páginas: {{ livro.numeroPaginas | number }}</p>
+<p>Preço: {{ livro.preco | currency:'BRL':true }}</p>
+<p>Data Lançamento: {{ livro.dataLancamento | date:'dd-MM-yyyy' }}</p>
+<p>Ulr: {{ livro.url }}</p>
+<p>Livro: {{ livro | json }}</p>
+
+<br>
+<p>Adicionar Curso</p>
+<input type="text" #novoValor>
+<button (click)="addCurso(novoValor.value)">Add Curso</button>
+
+<br>
+
+<p>Filtrar</p>
+<input type="text" [(ngModel)]="filtro">
+
+<!--Não recomendável utilizar, apenas para conhecimento
+Exemplo de Pipe Puro (Não Olha para as Modificações)-->
+<h5>Pipe Puro</h5>
+<ul>
+    <li *ngFor="let l of livros | filtroArray:filtro">
+        {{ l }}
+    </li>
+</ul>
+
+<!--Não recomendável utilizar, apenas para conhecimento-->
+<h5>Pipe Impuro</h5>
+<ul>
+    <li *ngFor="let l of livros | filtroArrayImpuro:filtro">
+        {{ l }}
+    </li>
+</ul>
+<br>
+<h5>Maneira Correta de Utilizar Filtros</h5>
+<ul>
+    <li *ngFor="let l of obterCursos()">
+        {{ l }}
+    </li>
+</ul>
+
+<p>{{ valorAsync | async }}</p>
+
+<p>{{ valorAsync2 | async }}</p>
