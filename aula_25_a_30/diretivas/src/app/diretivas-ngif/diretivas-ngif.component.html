@@ -1,0 +1,30 @@
+<h5>*ngIf</h5>
+<div *ngIf="cursos.length > 0">
+  Lista de Cursos
+</div>
+<div *ngIf="cursos.length == 0">
+  Não há Cursos para serem listados.
+</div>
+<div *ngIf="mostrarCursos">
+  Mostrar Cursos
+</div>
+<div *ngIf="!mostrarCursos">
+  Não Mostrar Cursos
+</div>
+<div [hidden]="!mostrarCursos">
+  Mostrar Cursos
+</div>
+<div [hidden]="mostrarCursos">
+  Não Mostrar Cursos
+</div>
+<button (click)="onExibirCursos()">Mostrar ou Esconder</button>
+
+<h3>Removendo o * e usando template</h3>
+<span>No exemplo é apenas "template", contudo devido a mensagem DEPRECATE atualizei para on-template</span>
+<ng-template [ngIf]="mostrarCursos">
+  <div>Lista de cursos aqui...</div>
+</ng-template>
+
+<div ng-template="ngIf mostrarCursos">
+  Mostrar Cursos
+</div>

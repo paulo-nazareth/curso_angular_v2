@@ -1,0 +1,17 @@
+<h1>
+  <span class="glyphicon" [class.glyphicon-star-empty]="!meuFavorito"
+     [class.glyphicon-star]="meuFavorito"
+     (click)="favoritar()">
+  </span>
+</h1>
+<h4>Utilizando o Property Binding ngClass</h4>
+<h1>
+  <span class="glyphicon" 
+    [ngClass]="{
+      'glyphicon-star-empty': !meuFavorito,
+      'glyphicon-star': meuFavorito
+    }" (click)="favoritar()">
+  </span>
+</h1>
+
+
