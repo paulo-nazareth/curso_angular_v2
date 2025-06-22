@@ -1,47 +1,6 @@
 # curso_angular_v2
 Repositório utilizado para realização do curso de Angular versão 2/4 da Loiane Groner
 
-Curso de Angular - Introdução e Tipos de Diretivas no Angular 2
-
-###Diretivas Estruturais
-  Interagem com a view e modificam a estrutura DOM e/ou código HTML
-  ##Descrição da Diretiva ngFor
-    Exemplo:
-      <ul>
-        <li *ngFor="let curso of cursos">
-          {{ curso }}
-        </li>
-      </ul>
-    #Descrição da Diretiva ngFor
-    Itere todos os cursos, e a cada iteração, atribua o valor do elemente atual à uma variável curso.
-    Replique também o elemento <li> com valor da variável curso a cada iteração.
-  ##Diretiva ngIf
-    Exemplo:
-      var cursos = [];
-      if(cursos.length > 0){
-        //Alguma lógica de programação
-      } else {
-        //Alguma outra lógica de programação
-      }
-  ##Diretiva ngSwitch-Case
-    Exemplo:
-      var viewMode = 'mapa';
-      switch (viewMode){
-        case 'mapa': //lógica mapa;
-          break;
-        case 'lista': //lógica lista;
-          break;
-        default: //lógica padrão
-      }
-  ##Componentes também são diretivas
-
-###Diretivas de Atributos
-  Interagem com o elemento em que foram aplicadas
-  Exemplo:
-    ng-class
-    ng-style
-=======
-
 ####Angular 4
 Documentação: https://angular.dev/tools/cli
 Play List Curso de Angular v2: https://www.youtube.com/watch?v=XxPjcMTZz5w&list=PLGxZ4Rq3BOBoSRcKWEdQACbUCNWLczg2G&index=3
@@ -471,6 +430,7 @@ TypeScript: 2.7.2
 }
 
 
+
 ##Configuração .angular-cli.json
   "defaults": {
     "prefix": "app",
@@ -481,7 +441,10 @@ TypeScript: 2.7.2
     "component": {}
   }
 
+---------------------------------------------------------
 ###Anotações
 diretivas
 	diretivas-ngif (componente)
 	diretiva-ngif/diretiva-if (serviço)
+
+
