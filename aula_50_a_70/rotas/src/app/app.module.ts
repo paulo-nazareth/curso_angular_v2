@@ -6,31 +6,39 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { CursosComponent } from './cursos/cursos.component';
 // Criado um Modulo
 // import { routing } from './app.routing';
-import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
+/* 
+--Movimentado para o Modulo
+import { CursosComponent } from './cursos/cursos.component';
+import { CursoDetalheComponent } from './cursos/curso-detalhe/curso-detalhe.component';
+import { CursoNaoEncontradoComponent } from './cursos/curso-nao-encontrado/curso-nao-encontrado.component';
 import { CursosService } from './cursos/cursos.service';
-import { CursoNaoEncontradoComponent } from './curso-nao-encontrado/curso-nao-encontrado.component';
+*/
 import { AppRoutingModule } from './app.routing.module';
+import { CursosModule } from './cursos/cursos.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
+    /* 
+    --Movimentado para o Modulo
     CursosComponent,
     CursoDetalheComponent,
     CursoNaoEncontradoComponent
+    */
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    CursosModule,
     //routing
     AppRoutingModule
   ],
-  providers: [ CursosService ],
+  //providers: [ CursosService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
