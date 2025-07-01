@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-// Criado um Modulo
+// --Movimentado para Modulo
 // import { routing } from './app.routing';
 /* 
 --Movimentado para o Modulo
@@ -17,12 +17,13 @@ import { CursosService } from './cursos/cursos.service';
 */
 import { AppRoutingModule } from './app.routing.module';
 import { CursosModule } from './cursos/cursos.module';
+import { AlunosModule } from './alunos/alunos.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
+    LoginComponent
     /* 
     --Movimentado para o Modulo
     CursosComponent,
@@ -35,6 +36,7 @@ import { CursosModule } from './cursos/cursos.module';
     FormsModule,
     HttpModule,
     CursosModule,
+    AlunosModule,
     //routing
     AppRoutingModule
   ],
