@@ -1,3 +1,20 @@
-<p>
-  aluno-form works!
-</p>
+<h4>Criar/Editar Aluno</h4>
+<div class="row">
+  <div class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <input disabled [(ngModel)]="aluno.id" placeholder="Id" id="id" type="text">
+        <label for="first_name" class="active">#</label>
+      </div>
+      <div class="input-field col s12">
+        <input [(ngModel)]="aluno.nome" id="nome" type="text">
+        <label for="nome" class="active">Nome</label>
+      </div>
+      <div class="input-field col s12">
+        <input [(ngModel)]="aluno.email"  id="email" type="text">
+        <label for="email" class="active">E-Mail</label>
+      </div>
+    </div>
+  </div>
+</div>
+<span>Necessário Importar o FormsModule, para o Funcionamento do Two-Way Data Binding</span>
