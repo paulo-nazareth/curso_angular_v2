@@ -7,9 +7,9 @@ import { CursoNaoEncontradoComponent } from "./curso-nao-encontrado/curso-nao-en
 import { CursoDetalheComponent } from "./curso-detalhe/curso-detalhe.component";
 
 const cursosRoutes: Routes = [
-    { path: 'cursos', component: CursosComponent },
+    { path: '', component: CursosComponent }, //Removido o cursos do path devido ao carregamento Lazy
     { path: 'nao-encontrado', component: CursoNaoEncontradoComponent },
-    { path: 'curso/:id', component: CursoDetalheComponent }
+    { path: ':id', component: CursoDetalheComponent }
 ];
 
 @NgModule({

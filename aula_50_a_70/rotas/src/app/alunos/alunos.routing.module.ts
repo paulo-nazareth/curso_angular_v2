@@ -17,7 +17,7 @@ const alunosRoutes: Routes = [
 
 /*Ao utilizar Rotas Filhas, tanto o componente pai, quanto o componente filho são renderizados (necessário adicionar router-outlet no componente pai)*/
 const alunosRoutes: Routes = [
-    { path: 'alunos', component: AlunosComponent, children: [
+    { path: '', component: AlunosComponent, children: [
         { path: 'novo', component: AlunoFormComponent },
         { path: ':id', component: AlunoDetalheComponent },
         { path: ':id/editar', component: AlunoFormComponent }

@@ -16,8 +16,8 @@ import { CursoNaoEncontradoComponent } from './cursos/curso-nao-encontrado/curso
 import { CursosService } from './cursos/cursos.service';
 */
 import { AppRoutingModule } from './app.routing.module';
-import { CursosModule } from './cursos/cursos.module';
-import { AlunosModule } from './alunos/alunos.module';
+//import { CursosModule } from './cursos/cursos.module';
+//import { AlunosModule } from './alunos/alunos.module';
 
 @NgModule({
   declarations: [
@@ -35,8 +35,8 @@ import { AlunosModule } from './alunos/alunos.module';
     BrowserModule,
     FormsModule,
     HttpModule,
-    CursosModule,
-    AlunosModule,
+    //CursosModule, Removido devido ao Carregamento Lazy (Não pode ser utilizado em outras declarações além do app.routing.module)
+    //AlunosModule,
     //routing
     AppRoutingModule
   ],
