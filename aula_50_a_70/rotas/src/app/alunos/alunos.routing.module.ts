@@ -5,6 +5,7 @@ import { ModuleWithProviders } from "@angular/core";
 import { AlunoDetalheComponent } from "./aluno-detalhe/aluno-detalhe.component";
 import { AlunoFormComponent } from "./aluno-form/aluno-form.component";
 import { AlunosComponent } from "./alunos.component";
+import { AlunosGuard } from "app/guards/alunos.guard";
 
 /*Declaração Conforme Necessidade do Projeto
 const alunosRoutes: Routes = [
@@ -17,7 +18,9 @@ const alunosRoutes: Routes = [
 
 /*Ao utilizar Rotas Filhas, tanto o componente pai, quanto o componente filho são renderizados (necessário adicionar router-outlet no componente pai)*/
 const alunosRoutes: Routes = [
-    { path: '', component: AlunosComponent, children: [
+    { path: '', component: AlunosComponent
+    , canActivateChild: [ AlunosGuard ] 
+    , children: [
         { path: 'novo', component: AlunoFormComponent },
         { path: ':id', component: AlunoDetalheComponent },
         { path: ':id/editar', component: AlunoFormComponent }
