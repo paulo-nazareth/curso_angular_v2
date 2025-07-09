@@ -11,11 +11,12 @@ export class AlunosGuard implements CanActivateChild {
       Observable<boolean> | Promise<boolean> | boolean {
 
         console.log("Guarda de Rotas Filhas Alunos...");
-        if(state.url.includes('editar')){
-          alert('Usuário sem permissão de Edição.');
-          //          return false;
-          return Observable.of(false); //Chamada Ajax
-        }
+
+        //if(state.url.includes('editar')){
+          //alert('Usuário sem permissão de Edição.');
+          //return false;
+          //return Observable.of(false); //Chamada Ajax
+        //}
         return true;
   }
 
