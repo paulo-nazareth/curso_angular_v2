@@ -25,8 +25,9 @@
       <!-- pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
        no angular4 apenas email -->
       <div class="alert alert-danger" role="alert"
-       *ngIf="email.touched && !email.valid">Preenchimento do e-mail obrigatório!
+       *ngIf="email.touched && !email.valid">E-mail inválido!
       </div>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" 
+    [disabled]="!f.valid">Submit</button>
 </form>
