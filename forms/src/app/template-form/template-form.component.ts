@@ -20,8 +20,11 @@ export class TemplateFormComponent implements OnInit {
   }
 
   onSubmit(form){
-    console.log(form);
-    console.log(this.usuario);
+    // console.log(form);
+    // console.log(this.usuario);
+    this.http.post('https://httpbin.org/post', JSON.stringify(form.value))
+      .map(res => res)
+      .subscribe(dados => console.log(dados));
   }
 
   verificaValidTouched(campo){
@@ -45,7 +48,7 @@ export class TemplateFormComponent implements OnInit {
       var validacep = /^[0-9]{8}$/;
 
       this.limpDadosForm(form);
-      
+
       //Valida o formato do CEP.
       if(validacep.test(cep)) {
         this.http.get(`https://viacep.com.br/ws/${cep}/json`)
