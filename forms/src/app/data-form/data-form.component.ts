@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Http } from '@angular/http';
 
 @Component({
@@ -25,8 +25,10 @@ export class DataFormComponent implements OnInit {
     // });
     // OU
     this.formulario = this.formBuilder.group({
-      nome: [null],
-      email: [null]
+      nome: [null, Validators.required],
+      //nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
+      email: [null, [Validators.required, Validators.email]]
+      //email: [null, [Validators.required, Validators.pattern("^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$")]]
     });
   }
 
