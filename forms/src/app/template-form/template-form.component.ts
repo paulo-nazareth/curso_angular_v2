@@ -19,12 +19,15 @@ export class TemplateFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(form){
+  onSubmit(formulario){
     // console.log(form);
     // console.log(this.usuario);
-    this.http.post('https://httpbin.org/post', JSON.stringify(form.value))
+    this.http.post('https://httpbin.org/post', JSON.stringify(formulario.value))
       .map(res => res)
-      .subscribe(dados => console.log(dados));
+      .subscribe(dados => {
+        console.log(dados),
+        this.resetar(formulario);
+      });
   }
 
   verificaValidTouched(campo){
@@ -98,4 +101,9 @@ export class TemplateFormComponent implements OnInit {
       }
     });
   }
+
+  resetar(formulario){
+     formulario.form.reset();
+  }
+  
 }
