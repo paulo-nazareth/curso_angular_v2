@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { DropdownService } from 'app/shared/services/dropdown.service';
 import { EstadosBr } from 'app/shared/models/estado-br';
+import { ConsultaCepService } from 'app/shared/services/consulta-cep.service';
 
 @Component({
   selector: 'app-data-form',
@@ -19,7 +20,8 @@ export class DataFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder, 
     private http: HttpClient,
-    private dropdownService: DropdownService
+    private dropdownService: DropdownService,
+    private cepService: ConsultaCepService
   ) { 
 
   }
@@ -106,21 +108,12 @@ export class DataFormComponent implements OnInit {
     }
   }
 
-consultaCEP(){
+  consultaCEP(){
     //Nova variável "cep" somente com dígitos.
-    let cep = this.formulario.get('endereco.cep').value.replace(/\D/g, '');
-    //Verifica se campo cep possui valor informado.
-    if (cep != "") {
-      //Expressão regular para validar o CEP.
-      var validacep = /^[0-9]{8}$/;
-
-      this.resetar();
-
-      //Valida o formato do CEP.
-      if(validacep.test(cep)) {
-        this.http.get(`https://viacep.com.br/ws/${cep}/json`)
-          .subscribe(dados => this.populaDadosForm(dados));
-      }
+    let cep = this.formulario.get('endereco.cep').value;
+    if (cep != null && cep !== '') {
+      this.cepService.consultaCEP(cep)
+        .subscribe(dados => this.populaDadosForm(dados));
     }
   }
 
