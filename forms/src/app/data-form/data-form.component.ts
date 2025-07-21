@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 import { DropdownService } from 'app/shared/services/dropdown.service';
-import { EstadoBr } from 'app/shared/models/estado-br';
+import { EstadosBr } from 'app/shared/models/estado-br';
 
 @Component({
   selector: 'app-data-form',
@@ -13,11 +14,11 @@ import { EstadoBr } from 'app/shared/models/estado-br';
 export class DataFormComponent implements OnInit {
 
   formulario: FormGroup;
-  estados: EstadoBr[];
+  estados: EstadosBr[];
 
   constructor(
     private formBuilder: FormBuilder, 
-    private http: Http,
+    private http: HttpClient,
     private dropdownService: DropdownService
   ) { 
 
@@ -58,7 +59,7 @@ export class DataFormComponent implements OnInit {
     // console.log(this.formulario);
     if(this.formulario.valid){
       this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
-        .map(res => res)
+        .pipe(map(res => res))
         .subscribe(dados => {
           console.log(dados);
           //Resenta Formulário
@@ -118,7 +119,6 @@ consultaCEP(){
       //Valida o formato do CEP.
       if(validacep.test(cep)) {
         this.http.get(`https://viacep.com.br/ws/${cep}/json`)
-          .map(dados => dados.json())
           .subscribe(dados => this.populaDadosForm(dados));
       }
     }
