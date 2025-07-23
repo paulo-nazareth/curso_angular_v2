@@ -72,7 +72,7 @@ export class DataFormComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       //email: [null, [Validators.required, Validators.pattern("^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$")]]
       endereco: this.formBuilder.group({
-        cep: [null, Validators.required],
+        cep: [null, [Validators.required, FormValidations.cepValidator]],
         numero: [null, Validators.required],
         complemento: [null],
         rua: [null, Validators.required],
@@ -160,7 +160,7 @@ export class DataFormComponent implements OnInit {
     this.formulario.reset();
   }
 
-  verificaValidTouched(campo){
+  verificaValidTouched(campo: string){
     //this.formulario.controls(campo);
     //Verifica se o Campo foi selecionado ou modificado e se encontra-se valido
     return (this.formulario.get(campo).touched || this.formulario.get(campo).dirty) && !this.formulario.get(campo).valid;
@@ -171,6 +171,14 @@ export class DataFormComponent implements OnInit {
     if(campoEmail.errors){
       return campoEmail.errors['email'] && campoEmail.touched;
     }
+  }
+
+  verificaRequired(campo: string){
+    return (
+      this.formulario.get(campo).hasError('required') 
+      && (this.formulario.get(campo).touched || this.formulario.get(campo).dirty)
+      && !this.formulario.get(campo).valid
+    );
   }
 
   aplicaCssErro(campo: string){
@@ -192,7 +200,7 @@ export class DataFormComponent implements OnInit {
   populaDadosForm(dados){
     this.formulario.patchValue({
       endereco: {
-          cep: dados.cep,
+          //cep: dados.cep,
           complemento: dados.complemento,
           rua: dados.logradouro,
           bairro: dados.bairro,
