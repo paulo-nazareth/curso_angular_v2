@@ -18,6 +18,18 @@
       <app-campo-control-erro [mostrarErro]="verificaEmailValid()" mensagemErro="E-mail inválido!"></app-campo-control-erro>
     </div>
   </div>
+  <div class="form-group" [ngClass]="aplicaCssErro('confirmarEmail')">
+    <span>Há bibliotecas prontas que podem ser utilizadas para validação como o ng2-validation (Pesquisar)</span>
+    <div class="col-sm-12">
+      <label class="control-label" for="confirmarEmail">Confirmar E-mail</label>
+    </div>
+    <div class="col-sm-12">
+      <input type="email" class="form-control" id="confirmarEmail" placeholder="nome@email.com" formControlName="confirmarEmail" aria-describedby="confirmarEmailError">
+      <app-campo-control-erro [mostrarErro]="formulario.get('confirmarEmail').hasError('equalsTo')" mensagemErro="O e-mail informado não confere."></app-campo-control-erro>
+      <app-campo-control-erro [mostrarErro]="verificaValidTouched('confirmarEmail')" mensagemErro="Confirmação de E-mail obrigatório."></app-campo-control-erro>
+      <app-campo-control-erro [mostrarErro]="verificaEmailValid()" mensagemErro="E-mail inválido!"></app-campo-control-erro>
+    </div>
+  </div>
 
   <div formGroupName="endereco">
     <div class="form-group">
