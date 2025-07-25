@@ -10,6 +10,8 @@ export class CampoControlErroComponent implements OnInit {
   @Input() mostrarErro: boolean;
   
   @Input() mensagemErro: string;
+  
+  @Input() mostrarSucesso: boolean;
 
   constructor() { }
 
