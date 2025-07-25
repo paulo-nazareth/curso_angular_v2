@@ -1,3 +1,4 @@
+import { VerificaEmailService } from './services/verifica-email.service';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -34,7 +35,8 @@ export class DataFormComponent implements OnInit {
     private formBuilder: FormBuilder, 
     private http: HttpClient,
     private dropdownService: DropdownService,
-    private cepService: ConsultaCepService
+    private cepService: ConsultaCepService,
+    private verificaEmailService: VerificaEmailService
   ) { 
 
   }
@@ -55,6 +57,7 @@ export class DataFormComponent implements OnInit {
 
     this.newsletterOp = this.dropdownService.getNewsletter();
 
+    //this.verificaEmailService.verificarEmail('email@email.com').subscribe();
 /* 
     this.formulario = new FormGroup({
       nome: new FormControl(null),
@@ -69,7 +72,7 @@ export class DataFormComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       nome: [null, Validators.required],
       //nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
-      email: [null, [Validators.required, Validators.email]],
+      email: [null, [Validators.required, Validators.email], [this.validarEmail.bind(this)]],
       //email: [null, [Validators.required, Validators.pattern("^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$")]]
       confirmarEmail: [null, [Validators.required, Validators.email, FormValidations.equalsTo('email')]],
       endereco: this.formBuilder.group({
@@ -224,5 +227,12 @@ export class DataFormComponent implements OnInit {
 
   setarTecnologias(){
     this.formulario.get('tecnologias').setValue(['java', 'javascript', 'php']);
+  }
+
+  validarEmail(formControl: FormControl){
+    return this.verificaEmailService.verificarEmail(formControl.value)
+      .pipe(
+        map(emailExiste => emailExiste ? { emailInvalido: true } : null)
+      );
   }
 }

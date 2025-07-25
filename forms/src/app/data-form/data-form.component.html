@@ -14,8 +14,11 @@
     </div>
     <div class="col-sm-12">
       <input type="email" class="form-control" id="email" placeholder="nome@email.com" formControlName="email" aria-describedby="emailError">
-      <app-campo-control-erro [mostrarErro]="verificaValidTouched('email')" mensagemErro="E-mail obrigatório."></app-campo-control-erro>
       <app-campo-control-erro [mostrarErro]="verificaEmailValid()" mensagemErro="E-mail inválido!"></app-campo-control-erro>
+      <app-campo-control-erro [mostrarErro]="formulario.get('email').status === 'PENDING'" mensagemErro="Validando E-mail..."></app-campo-control-erro>
+      <app-campo-control-erro [mostrarErro]="formulario.get('email').status === 'VALID'" mensagemErro="E-mail Válido"></app-campo-control-erro>
+      <app-campo-control-erro [mostrarErro]="formulario.get('email').hasError('emailInvalido')" mensagemErro="E-mail já cadastrado."></app-campo-control-erro>
+      <app-campo-control-erro [mostrarErro]="verificaValidTouched('email')" mensagemErro="E-mail obrigatório."></app-campo-control-erro>
     </div>
   </div>
   <div class="form-group" [ngClass]="aplicaCssErro('confirmarEmail')">
