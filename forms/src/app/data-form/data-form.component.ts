@@ -70,7 +70,7 @@ export class DataFormComponent implements OnInit {
 */
     // OU
     this.formulario = this.formBuilder.group({
-      nome: [null, Validators.required],
+      nome: [null, [Validators.required, Validators.minLength(3), Validators.required, Validators.maxLength(5)]],
       //nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
       email: [null, [Validators.required, Validators.email], [this.validarEmail.bind(this)]],
       //email: [null, [Validators.required, Validators.pattern("^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$")]]
