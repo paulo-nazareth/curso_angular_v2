@@ -2,12 +2,12 @@ import { VerificaEmailService } from './services/verifica-email.service';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { distinct, distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
 
 import { DropdownService } from 'app/shared/services/dropdown.service';
 import { EstadosBr } from 'app/shared/models/estado-br';
 import { ConsultaCepService } from 'app/shared/services/consulta-cep.service';
-import { Observable } from 'rxjs';
+import { empty, Observable } from 'rxjs';
 import { FormValidations } from 'app/shared/form-validations';
 
 @Component({
@@ -90,6 +90,26 @@ export class DataFormComponent implements OnInit {
       termos: [null, Validators.pattern('true')],
       frameworks: this.buildFrameworks()
     });
+
+    //this.formulario.get('endereco.cep').valueChanges
+    this.formulario.get('endereco.cep').statusChanges
+      .pipe(
+        distinctUntilChanged(),
+        tap(value => console.log('Valor CEP: ', value)),
+        switchMap(status => status === 'VALID' ? 
+          this.cepService.consultaCEP(this.formulario.get('endereco.cep').value)
+          : empty()
+        )
+      )
+      .subscribe(dados => dados ? this.populaDadosForm(dados) : {});
+/*    #Removendo o observable aninhado, com incluindo o switchMap
+      .subscribe(status => {
+        if (status === 'VALID') {
+          this.cepService.consultaCEP(this.formulario.get('endereco.cep').value)
+          .subscribe(dados => this.populaDadosForm(dados))
+        }
+      }); 
+*/
   }
 
   buildFrameworks(){
