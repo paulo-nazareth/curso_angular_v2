@@ -70,7 +70,7 @@ export class DataFormComponent implements OnInit {
 */
     // OU
     this.formulario = this.formBuilder.group({
-      nome: [null, [Validators.required, Validators.minLength(3), Validators.required, Validators.maxLength(5)]],
+      nome: [null, [Validators.required, Validators.minLength(3), Validators.required, Validators.maxLength(200)]],
       //nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
       email: [null, [Validators.required, Validators.email], [this.validarEmail.bind(this)]],
       //email: [null, [Validators.required, Validators.pattern("^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$")]]
@@ -193,7 +193,7 @@ export class DataFormComponent implements OnInit {
   verificaEmailValid(){
     let campoEmail = this.formulario.get('email');
     if(campoEmail.errors){
-      return campoEmail.errors['email'] && campoEmail.touched;
+      return campoEmail.errors['emailInvalido'] && campoEmail.touched;
     }
   }
 

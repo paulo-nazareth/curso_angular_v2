@@ -12,7 +12,7 @@ export class VerificaEmailService {
   verificarEmail(email: string) {
     return this.http.get('assets/dados/verificarEmail.json')
       .pipe(
-        delay(3000),
+        delay(2000),
         map((dados: { emails: any[] }) => dados.emails),
         //tap(console.log),
         map((dados: { email: string }[]) => dados.filter(v => v.email === email)),
